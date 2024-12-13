@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IASmartEnergyStore - Optimización de Almacenamiento de Energía</title>
+    <style>
+        /* Estilo global para eliminar márgenes y rellenos */
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-image: url('/static/imagen_fondo_energia.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #ffffff;
+            font-family: 'Open Sans', Arial, sans-serif;
+            filter: brightness(1.2); /* Aclarar el fondo */
+        }
+
+        /* Barra de navegación */
+        nav {
+            background-color: rgba(0, 123, 255, 0.85); /* Azul para el tema de energía */
+            color: rgb(15, 15, 15); /* Color del texto */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px; /* Ajuste del relleno */
+            position: fixed;
+            top: 0; /* Posición al borde superior */
+            left: 0; /* Alineado al borde izquierdo */
+            width: 100%; /* Ocupa todo el ancho */
+            z-index: 1000; /* Coloca la barra sobre otros elementos */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra opcional */
+        }
+        
+        nav .logo {
+            font-size: 2.3em;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px white; /* Línea blanca para resaltar */
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 60px;
+        }
+        nav ul li a {
+            color: rgb(21, 19, 19);
+            text-decoration: none;
+            font-size: 2.3em;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px white; /* Línea blanca para resaltar */
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contenido principal */
+        .content {
+            margin-top: 80px; /* Espacio para que el contenido no se superponga con la barra */
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            text-align: center;
+            color: #0a0a0a; /* Oscurecer el color del título */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra en el texto */
+        }
+
+        section {
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        section h2 {
+            font-size: 2.3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 2px black; /* Borde negro */
+        }
+
+        section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        section ul li {
+            margin: 10px 0;
+            font-size: 1.5em;
+            text-shadow: 2px 2px 2px black; /* Borde negro */
+        }
+
+        section P {
+            margin: 10px 0;
+            font-size: 1.5em;
+            text-shadow: 2px 2px 2px black; /* Borde negro */
+        }
+
+        section ul li a {
+            color: #ffcc00; /* Amarillo para resaltar enlaces */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section ul li a:hover {
+            text-decoration: underline;
+            font-size: 1.5em;
+        }
+
+        /* Estilo del botón */
+        .game-button {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .game-button a {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            border: 2px solid #1e7e34;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .game-button a:hover {
+            background-color: #218838;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Estilo para el recuadro de fecha y hora */
+        #datetime {
+            position: fixed;
+            bottom: 10px; /* Moverlo al borde inferior */
+            left: 10px; /* Alineado al borde izquierdo */
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav>
+        <div class="logo">IASmartEnergyStore</div>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/chat">Asistencia AI</a></li>
+            <li><a href="/tecnologia">Tecnología</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="content">
+        <h1>Optimización Inteligente del Almacenamiento de Energía</h1>
+        <p style="text-align: center;">Nuestro sistema inteligente de gestión de baterías optimiza el almacenamiento de energía y garantiza un uso eficiente en tiempo real.</p>
+
+        <section id="descripcion-contexto">
+            <h2>Descripción y Contexto</h2>
+            <p>El crecimiento de las energías renovables como la solar y la eólica ha generado la necesidad de almacenar energía de manera eficiente debido a la intermitencia en su generación. Las baterías y sistemas de almacenamiento de energía juegan un papel crucial para garantizar el suministro continuo y aprovechar al máximo la energía producida. Sin embargo, su gestión ineficiente puede llevar a una reducción en la vida útil de los equipos y a un mal uso de la energía almacenada, lo que afecta la sostenibilidad y viabilidad económica del sistema.</p>
+            <p>Este proyecto propone el desarrollo de un sistema de inteligencia artificial para optimizar la gestión de baterías y otros sistemas de almacenamiento de energía en tiempo real. El sistema analiza datos de generación, consumo y demanda para maximizar la eficiencia, extender la vida útil de las baterías y reducir costos operativos.</p>
+        </section>
+
+        <section id="problemas-resolver">
+            <h2>Problemas a Resolver</h2>
+            <p>En IASmartEnergyStore, nos enfocamos en resolver los siguientes problemas relacionados con la gestión de energía:</p>
+            <ul>
+                <li><strong>Gestión ineficiente del almacenamiento:</strong> Muchas instalaciones no aprovechan al máximo las capacidades de sus baterías, ya sea cargándolas o descargándolas en momentos inadecuados.</li>
+                <li><strong>Desgaste acelerado:</strong> La falta de estrategias inteligentes de carga y descarga reduce la vida útil de las baterías.</li>
+                <li><strong>Intermitencia de energías renovables:</strong> La variabilidad en la generación de energía dificulta garantizar un suministro constante.</li>
+                <li><strong>Costos elevados:</strong> El uso ineficiente de los sistemas de almacenamiento aumenta los costos de mantenimiento y operación.</li>
+            </ul>
+        </section>
+
+        <!-- Sección de recursos tecnológicos -->
+        <section id="tecnologia">
+            <h2>Innovación en Tecnología</h2>
+            <p>Descubre cómo la inteligencia artificial revoluciona la gestión de baterías y optimiza el almacenamiento de energía:</p>
+            <ul>
+                <li><a href="https://www.energycentral.com/c/ieee/ai-transforming-energy-storage" target="_blank">Artículo: AI en el almacenamiento de energía</a></li>
+                <li><a href="https://www.bbc.com/news/technology-54578544" target="_blank">Informe: Inteligencia Artificial para la gestión eficiente de baterías</a></li>
+                <li><a href="https://www.weforum.org/agenda/2020/06/ai-energy-storage-systems/" target="_blank">Guía: Cómo la IA optimiza los sistemas de almacenamiento de energía</a></li>
+            </ul>
+        </section>
+
+        <section id="game">
+            <div class="game-button">
+                <a href="https://www.example.com/energia-game" target="_blank">Juega y aprende cómo optimizar tu sistema de almacenamiento de energía</a>
+            </div>
+        </section>
+    </div>
+
+    <div id="datetime"></div>
+
+    <script>
+        // Mostrar fecha y hora en tiempo real
+        function updateDateTime() {
+            var now = new Date();
+            var formattedDate = now.toLocaleString();
+            document.getElementById("datetime").innerText = formattedDate;
+        }
+
+        setInterval(updateDateTime, 1000);
+    </script>
+</body>
+</html>
